@@ -1,0 +1,10 @@
+<h2>*ngFor тест</h2>
+<ul>
+    <li *ngFor="let us of arr_users; let i = index">{{i + 1}}. {{us.name}}</li>
+</ul>
+
+<h2>Pipe тест</h2>
+<p>Pipe дата {{my_date | date: 'dd/MM/yyyy'}}</p>
+
+<h2>Созданный pipe тест</h2>
+<p>{{num | pipeSum5}}</p>
