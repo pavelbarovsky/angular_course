@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibappComponent } from './libapp/libapp.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { 
+    path: '', 
+    component: LibappComponent 
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
