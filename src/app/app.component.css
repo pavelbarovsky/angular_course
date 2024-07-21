@@ -1,0 +1,6 @@
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
