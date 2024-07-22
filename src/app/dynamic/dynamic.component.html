@@ -1,0 +1,25 @@
+<div
+  *ngTemplateOutlet = "
+    table;
+    context: { _col_1: '=D', _col_2: 'текст' }
+  ">
+</div>
+
+<ng-container>
+    <ng-template #table let-text_col_1="_col_1" let-text_col_2="_col_2">
+        <table>
+            <thead>
+                <tr>
+                    <th>Колонка 1</th>
+                    <th>Колонка 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ text_col_1 }}</td>
+                    <td>{{ text_col_2 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</ng-container>
