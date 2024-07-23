@@ -1,0 +1,11 @@
+<div class="container mt-4">
+    <h3>Детальная информация о пользователе</h3>
+    <div *ngIf="user">
+      <p>ID: {{ user.id }}</p>
+      <p>UserID: {{ user.userId }}</p>
+      <p>Title: {{ user.title }}</p>
+      <p>Body: {{ user.body }}</p>
+      <button routerLink="/" class="btn btn-secondary">Вернуться</button>
+    </div>
+</div>
+  
