@@ -21,7 +21,7 @@ export class HttpservService {
   }
 
   funcBtn4() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts')
+    return this.http.get('https://jsonplaceholder.typicode.com/post')
   }
 
   funcBtn5() {
