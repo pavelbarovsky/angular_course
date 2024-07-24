@@ -1,0 +1,47 @@
+.btn-flat {
+    position: relative;
+    width: 40px;
+    height: 40px;
+  }
+  
+.btn-flat i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input-field {
+    width: 100%;
+}
+
+.collection {
+    margin-top: 20px;
+    padding: 10px;
+    min-height: 250px;
+}
+
+.collection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+
+.waves-effect.waves-teal.btn-flat i {
+    transition: 0.2s ease-in;
+}
+
+.waves-effect.waves-teal.btn-flat i:hover {
+    color: rgb(240, 39, 39);
+}
