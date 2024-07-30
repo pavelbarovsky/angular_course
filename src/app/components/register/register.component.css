@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+.register_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 533px;
+  margin: 100px auto 90px auto;
+}
+
+
+.register_title p{
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  color: #111827;
+  margin-bottom: 36px;
+  width: 470px;
+  height: 40px;
+}
+
+.register_form_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 32px 40px;
+  width: 470px;
+  min-height: 533px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #374151;
+}
+
+input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 9px 13px;
+  width: 368px;
+  height: 38px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: #fff;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 6px;
+  padding: 9px 17px;
+  width: 368px;
+  height: 38px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #3A3395;
+}
+
+.btn-disabled {
+  background-color: #d3d3d3; 
+  color: #888888;
+}
+
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.error-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.is-invalid {
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+.invalid-feedback {
+  font-weight: 400;
+  font-size: 14px; 
+  line-height: 1.42857;
+  color: #7f1d1d;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.form-control.ng-invalid.ng-touched + .invalid-feedback {
+  display: block;
+}
+
+.invalid-feedback {
+  display: none;
+}
