@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -10,6 +11,7 @@ import { AddTodo, RemoveTodo, ToggleTodo, Todo } from './state/models/todo.model
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title: string = 'todo';
   @Select(TodoState.getTodos) todos$!: Observable<Todo[]>;
 
   newTodo: Todo = { id: 0, title: '', completed: false };
