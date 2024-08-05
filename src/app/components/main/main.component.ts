@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({
   selector: 'app-main',
@@ -7,4 +8,26 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  email_text!: string;
+
+  constructor(private notifyService: NotifyService) {}
+
+  onSubscribe() {
+    if (this.email_text) {
+      this.notifyService.showNoti({
+        title: 'Успех!',
+        subtitle: 'Вы успешно подписались на рассылку.',
+        type: 'success',
+        timeout: 3000
+      });
+      this.email_text = ''; // Очистка поля ввода
+    } else {
+      this.notifyService.showNoti({
+        title: 'Ошибка!',
+        subtitle: 'Пожалуйста, введите свой email.',
+        type: 'error',
+        timeout: 3000
+      });
+    }
+  }
 }

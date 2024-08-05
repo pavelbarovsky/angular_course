@@ -28,7 +28,7 @@
 .error_img {
     flex: 1; 
     height: 100vh; 
-    background: url("../../../images/error_img/Image.jpg") no-repeat center;
+    background: url("../../../assets/error_bg.jpg") no-repeat center;
     background-size: cover; 
 }
 
@@ -63,4 +63,8 @@
     color: #3a3395;
     text-decoration: none;
     margin-bottom: 24px;
+}
+
+a {
+    cursor: pointer;
 }

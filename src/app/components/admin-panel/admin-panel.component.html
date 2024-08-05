@@ -1,23 +1,20 @@
-<button (click) = "getAllUsers()">users</button>
-<button (click) = "getAllRecipes()">recipes</button>
+<div class="tabs">
 
-<div>
-  <h2>Пользователи</h2>
-  <ul>
-    <li *ngFor="let user of allUsers">
-      {{ user.username }} ({{ user.firstName }})
-      <button (click)="editUser(user)">Редактировать</button>
-      <button (click)="deleteUser(user)">Удалить</button>
-    </li>
-  </ul>
+  <h2 class="admin_panel_title">Управление пользователями</h2>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" (selectedTabChange)="onTabChange($event)" #tabGroup>
 
-  <h2>Рецепты</h2>
-  <ul>
-    <li *ngFor="let recipe of allRecipes">
-      {{ recipe.title }}
-      <button (click)="editRecipe(recipe)">Редактировать</button>
-      <button (click)="deleteRecipe(recipe)">Удалить</button>
-    </li>
-  </ul>
+    <mat-tab label="Панель администрирования">
+      <ng-template matTabContent>
+        <app-users *ngIf="tabGroup.selectedIndex === 0"></app-users>
+      </ng-template>
+    </mat-tab>
+    
+    <mat-tab label="Управление рецептами">
+      <ng-template matTabContent>
+        <app-recipes *ngIf="tabGroup.selectedIndex === 1"></app-recipes>
+      </ng-template>
+    </mat-tab>
+
+  </mat-tab-group>
+
 </div>
-  

@@ -15,3 +15,8 @@ export interface User {
 export class LoadUsers {
     static readonly type = '[App] Load Users';
 }
+
+export class DeleteUser {
+    static readonly type = '[User] Delete User';
+    constructor(public id: string) {}
+}

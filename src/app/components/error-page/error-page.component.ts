@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-error-page',
@@ -11,7 +12,7 @@ export class ErrorPageComponent implements OnInit {
   errorTitle: string = '';
   errorMessage: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit(): void {
     this.route.data.subscribe((data: Data) => {
@@ -19,5 +20,9 @@ export class ErrorPageComponent implements OnInit {
       this.errorTitle = data['errorTitle'];
       this.errorMessage = data['errorMessage'];
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

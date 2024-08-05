@@ -1,0 +1,114 @@
+.modal_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 0px;
+    border-radius: 8px;
+    min-width: 512px;
+    min-height: 154px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: #fff;
+    box-sizing: border-box;
+
+    transform: translateX(-50%);
+    position: fixed;
+    top: 35%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+}
+
+.modal_info_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 16px;
+    padding: 24px 24px 16px 24px;
+    min-width: 512px;
+    min-height: 92px;
+}
+
+.modal_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #fee2e2;
+}
+
+.modal_info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal_title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33333;
+    color: #111827;
+}
+
+.modal_subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #6b7280;
+}
+
+.modal_btn_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px 24px;
+    min-width: 512px;
+    min-height: 62px;
+    background: #f9fafb;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.modal_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 9px 17px;
+    width: 94px;
+    height: 38px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #374151;
+}
+
+.btn_primary {
+    background: #DD0035;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+}
+
+a {
+    cursor: pointer;
+}

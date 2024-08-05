@@ -5,8 +5,8 @@
             <h1 class="error_title">{{ errorTitle }}</h1>
             <p class="error_subtitle">{{ errorMessage }}</p>
         </div>
-        <a class="error_button" routerLink="#">Назад →</a>
-        <a class="error_button" routerLink="#">На главную →</a>
+        <a class="error_button" (click)="goBack()">Назад →</a>
+        <a class="error_button" routerLink="/">На главную →</a>
     </div>
     <div class="error_img"></div>
 </div>

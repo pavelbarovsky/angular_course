@@ -1,0 +1,147 @@
+/* __________ Почему именно мы __________ */
+.why {
+  margin-top: 150px;
+}
+
+.why_title {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1;
+  text-align: center;
+  color: #111827;
+  margin: 81px;
+}
+
+.why_card_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 37px;
+  justify-content: center;
+}
+
+.why_card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 12px;
+  width: 280px;
+  max-height: 222px;
+  margin-bottom: 150px;
+}
+
+.why_card_title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.why_card_text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+/* __________ Рассылка __________ */
+
+.mailing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border-radius: 24px;
+  padding: 80px;
+  width: 1319px;
+  height: 264px;
+  background: #e7f9fd;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+.mailing_info_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 679px;
+}
+
+.mailing_info_title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #000;
+}
+
+.mailing_info_subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #707070;
+}
+
+.mailing_sub_container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.input_container {
+  position: relative;
+}
+
+.error-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 13px 21px;
+  width: 281px;
+  height: 50px;
+  background: #fff;
+}
+
+
+.mailing_sub_container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-radius: 6px;
+  padding: 13px 25px;
+  width: 155px;
+  height: 50px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background: #3a3395;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.is-invalid {
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-color: #fca5a5;
+}
+

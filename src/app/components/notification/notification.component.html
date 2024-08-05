@@ -1,0 +1,38 @@
+<div class="noti_container" *ngFor="let notification of notis">
+    <div class="notification" [ngClass]="notification.type">
+        <div class="noti_icon_status">
+            <ng-container [ngSwitch]="notification.type">
+                <svg *ngSwitchCase="'success'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" 
+                        stroke="#34D399" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round"
+                    />
+                </svg>
+                <svg *ngSwitchCase="'error'" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path 
+                        fill-rule="evenodd" 
+                        clip-rule="evenodd" 
+                        d="M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 12C9 12.5523 8.55229 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55229 11 9 11.4477 9 12ZM8 3C7.44772 3 7 3.44772 7 4V8C7 8.55228 7.44772 9 8 9C8.55229 9 9 8.55228 9 8V4C9 3.44772 8.55229 3 8 3Z" 
+                        fill="#EF4444"
+                    />
+                </svg>
+            </ng-container>
+        </div>
+        <div class="noti_info_container">
+            <div class="noti_title">{{ notification.title }}</div>
+            <div class="noti_subtitle">{{ notification.subtitle }}</div>
+        </div>
+        <div class="noti_icon_close" (click)="closeNoti(notification)">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd" 
+                    d="M11.707 0.293a1 1 0 0 0-1.414 0L6 4.586 1.707 0.293A1 1 0 0 0 .293 1.707L4.586 6 .293 10.293a1 1 0 1 0 1.414 1.414L6 7.414l4.293 4.293a1 1 0 0 0 1.414-1.414L7.414 6l4.293-4.293a1 1 0 0 0 0-1.414z" 
+                    fill="#9CA3AF"
+                />
+            </svg>
+        </div>
+    </div>
+</div>

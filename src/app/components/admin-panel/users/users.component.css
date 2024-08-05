@@ -1,0 +1,132 @@
+
+.admin_users_table {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    width: 1280px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    margin-top: 50px;
+}
+
+.admin_users_table thead {
+    height: 40px;
+    background: #f9fafb;
+}
+
+.admin_users_table tbody tr {
+    height: 72px;
+}
+
+.admin_users_table_titles th {
+    padding-left: 24px; 
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6b7280;
+    text-align: left;
+}
+
+.admin_users_title_name  {
+    width: 820px;
+}
+
+.admin_users_title_status {
+    width: 143px;
+}
+
+.admin_users_title_role {
+    width: 146px;
+}
+
+.admin_users_title_actions {
+    width: 169px;
+    text-align: center;
+}
+
+.admin_users_avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.admin_users_status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0px;
+    border-radius: 10px;
+    padding: 2px 10px;
+    width: 70px;
+    height: 20px;
+    background: #d1fae5;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    text-align: center;
+    color: #065f46;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.admin_users_role {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    text-align: center;
+    color: #6B7280;
+    padding: 12px 24px;
+}
+
+.admin_users_name {
+    font-weight: 500;
+    font-size: 14px; 
+    line-height: 1.42857;
+    color: #111827;
+}
+
+.admin_users_username {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #6b7280;
+}
+
+.admin_users_table_titles th{
+    font-weight: 500;
+    font-size: 12px; 
+    line-height: 1.33333;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6b7280;
+} 
+
+.admin_users_info_container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-star;
+    gap: 16px;
+    padding-left: 24px;
+}
+
+.admin_users_name_container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-star;
+}
+
+.admin_users_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 31px;
+    justify-content: center;
+}
+
+a {
+    cursor: pointer;
+}

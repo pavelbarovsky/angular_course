@@ -46,6 +46,11 @@
   font-size: 16px;
   letter-spacing: -0.02em;
   color: #000;
+  transition: 0.1s ease-out;
+}
+
+.nav-link:hover {
+  border-bottom: 3px solid #3a3395;
 }
 
 .profile {
@@ -68,8 +73,6 @@
   height: 41px;
   border-radius: 50%;
 }
-
-
 
 .user_info {
   position: relative;
@@ -170,5 +173,20 @@
 }
 
 .btn_signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0px;
+  border-radius: 8px;
+  padding: 9px 17px;
+  width: 140px;
+  height: 38px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: #3a3395;
   margin-right: 55px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #fff;
 }

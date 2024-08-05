@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { tap, map, catchError } from 'rxjs/operators';
 import { UserCredentials, UserRegistration, LoginResponse, RegistrationResponse, UserResponse } from '../interfaces/auth.interface';
+import { NotifyService } from './notify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +22,40 @@ export class AuthService {
     username: '',
   });
 
-  constructor(private http: HttpClient) {}
+  // дублировал методы, чтобы сделать с localstorage
+  // потом может от него можно избавиться
+
+  constructor(private http: HttpClient, private notifyService: NotifyService) {}
+
+  // getUser(): Observable<UserResponse> {
+  //   return this.userSubject.asObservable();
+  // }
+
+  // login(credentials: UserCredentials): Observable<LoginResponse> {
+  //   return this.http.post<LoginResponse>(`${this.apiUrl}/api/cooking-blog/users/sign`, credentials).pipe(
+  //     tap(response => {
+  //       this.userSubject.next(response);
+  //     })
+  //   );
+  // }
+
+  // logout(): void {
+  //   this.clearUser();
+  // }
 
   getUser(): Observable<UserResponse> {
+    const userFromStorage = this.getUserFromStorage();
+    if (userFromStorage) {
+      this.userSubject.next(userFromStorage);
+    }
     return this.userSubject.asObservable();
   }
 
   login(credentials: UserCredentials): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}/api/cooking-blog/users/sign`, credentials).pipe(
-      tap(response => {
+      tap((response) => {
         this.userSubject.next(response);
+        this.saveUserToStorage(response);
       })
     );
   }
@@ -41,9 +66,10 @@ export class AuthService {
 
   logout(): void {
     this.clearUser();
+    this.clearUserFromStorage();
   }
 
-  private clearUser(): void {
+  clearUser(): void {
     this.userSubject.next({
       id: '',
       firstName: '',
@@ -79,5 +105,20 @@ export class AuthService {
 
   getAvatar(): Observable<string> {
     return this.userSubject.asObservable().pipe(map((user: UserResponse) => user.avatar));
+  }
+
+  private readonly USER_STORAGE_KEY = 'user';
+
+  private saveUserToStorage(user: UserResponse): void {
+    localStorage.setItem(this.USER_STORAGE_KEY, JSON.stringify(user));
+  }
+
+  private getUserFromStorage(): UserResponse {
+    const userJson = localStorage.getItem(this.USER_STORAGE_KEY);
+    return userJson ? JSON.parse(userJson) : null;
+  }
+
+  private clearUserFromStorage(): void {
+    localStorage.removeItem(this.USER_STORAGE_KEY);
   }
 }

@@ -25,4 +25,16 @@ export class AdminDataService {
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.apiUrl}/api/cooking-blog/posts`);
   }
+
+  deleteUser(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/api/cooking-blog/users/${id}`, {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    });
+  }
+
+  deleteRecipe(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/api/cooking-blog/posts/${id}`);
+  }
 }

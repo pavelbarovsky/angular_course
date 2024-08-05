@@ -1,70 +1,83 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/store/model/user.model';
-import { Recipe } from 'src/app/store/model/recipe.model';
-import { LoadUsers } from 'src/app/store/model/user.model';
-import { LoadRecipes } from 'src/app/store/model/recipe.model';
-import { AppStateModel } from 'src/app/store/app.state';
-import { AdminDataService } from 'src/app/services/admin-data.service';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { MatTabGroup } from '@angular/material/tabs';
+import { filter } from 'rxjs/operators';
+import { DeleteUser, User } from 'src/app/store/model/user.model';
+import { DeleteRecipe, Recipe } from 'src/app/store/model/recipe.model';
+import { Store} from '@ngxs/store';
+
 
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
   styleUrls: ['./admin-panel.component.css']
 })
-export class AdminPanelComponent implements OnInit {
-  @Select((state: { app: AppStateModel }) => state.app.users) users$!: Observable<User[]>;
-  @Select((state: { app: AppStateModel }) => state.app.recipes) recipes$!: Observable<Recipe[]>;
+export class AdminPanelComponent implements OnInit, AfterViewInit {
+  @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
-  allUsers: any;
-  allRecipes: any;
+  showModal: boolean = false;
+  modalTitle: string = '';
+  modalSubtitle: string = '';
+  entity: any;
 
-  constructor(private store: Store, public AdminDataServise: AdminDataService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit(): void {
-    this.loadData();
-
-    console.log(this.allUsers);
-    console.log(this.allRecipes);
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.setActiveTab();
+      });
   }
 
-  loadData() {
-    this.store.dispatch(new LoadUsers()).subscribe(() => {
-      this.getAllUsers();
-    });
-    this.store.dispatch(new LoadRecipes()).subscribe(() => {
-      this.getAllRecipes();
-    });
+  ngAfterViewInit(): void {
+    this.setActiveTab();
   }
 
-  getAllUsers() {
-    this.AdminDataServise.getUsers().subscribe({
-      next: (response: any) => {
-        this.allUsers = response;
-        console.log(this.allUsers);
-      }
-    })
+  setActiveTab(): void {
+    const routePath = this.route.snapshot.firstChild?.routeConfig?.path;
+    if (routePath === 'users') {
+      this.tabGroup.selectedIndex = 0;
+    } else if (routePath === 'recipes') {
+      this.tabGroup.selectedIndex = 1;
+    } else {
+      this.tabGroup.selectedIndex = 0;
+    }
   }
 
-  getAllRecipes() {
-    this.AdminDataServise.getRecipes().subscribe({
-      next: (response: any) => {
-        this.allRecipes = response;
-        console.log(this.allRecipes);
-      }
-    })
+  onTabChange(event: any): void {
+    if (event.index === 0) {
+      this.router.navigate(['admin/users']);
+    } else if (event.index === 1) {
+      this.router.navigate(['admin/recipes']);
+    }
   }
 
-  editUser(user: User): void {
+
+  deleteUserModal(user: User): void {
+    this.showModal = true;
+    this.modalTitle = 'Удалить этого пользователя?';
+    this.modalSubtitle = `Вы хотите удалить ${user.firstName} ${user.lastName}. Действие нельзя отменить`;
+    this.entity = { type: 'user', id: user.id };
   }
 
-  deleteUser(user: User): void {
+  deleteRecipeModal(recipe: Recipe): void {
+    this.showModal = true;
+    this.modalTitle = 'Удалить этот рецепт?';
+    this.modalSubtitle = 'Вы хотите удалить этот рецепт. Действие нельзя отменить';
+    this.entity = { type: 'recipe', id: recipe.id };
   }
 
-  editRecipe(recipe: Recipe): void {
+  onCloseModal() {
+    this.showModal = false;
   }
 
-  deleteRecipe(recipe: Recipe): void {
+  onConfirmModal() {
+    if (this.entity.type === 'user') {
+      this.store.dispatch(new DeleteUser(this.entity.id));
+    } else if (this.entity.type === 'recipe') {
+      this.store.dispatch(new DeleteRecipe(this.entity.id));
+    }
+    this.showModal = false;
   }
 }
